@@ -1,4 +1,3 @@
-
 name: Automatisation des tests
 on: push
 jobs:
@@ -15,6 +14,7 @@ jobs:
           cmake ..
           make
           make test
+
   Test_Add:
     runs-on: ubuntu-latest
     needs: Compilation
@@ -29,3 +29,30 @@ jobs:
           cmake ..
           make
           ./src/calculator add 10 5
+
+      - name: Test fonction sub
+        run: |
+          cd ./$last_directory/build
+          ./src/calculator sub 10 5
+
+      - name: Test fonction mul
+        run: |
+          cd ./$last_directory/build
+          ./src/calculator mul 10 5
+
+      - name: Test fonction div
+        run: |
+          cd ./$last_directory/build
+          ./src/calculator div 10 5
+
+      - name: Test fonction carré
+        run: |
+          cd ./$last_directory/build
+          result=$(./src/calculator square 5)
+          expected="25.000000"
+          if [ "$result" != "$expected" ]; then
+            echo "Test failed! Expected $expected but got $result"
+            exit 1
+          else
+            echo "Test passed!"
+          fi
