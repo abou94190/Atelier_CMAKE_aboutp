@@ -1,5 +1,4 @@
-#include "calculator.h"
-
+#include "./../../include/calculator.h"
 // Implémentation des fonctions existantes
 double _add(double a, double b) {
     return a + b;
