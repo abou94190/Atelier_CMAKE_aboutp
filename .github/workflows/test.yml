@@ -39,7 +39,7 @@ jobs:
 
       - name: Test function add
         run: |
-          result=$(./src/calculator add 10 5)
+          result=$(./src/main add 10 5)
           expected="15.000000"
           if [ "$result" = "$expected" ]; then
             echo "Test passed!"
