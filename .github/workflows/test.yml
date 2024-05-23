@@ -14,7 +14,7 @@ jobs:
           cmake ..
           make
           make test
-name: Automatisation des tests
+name: Automatisation des tests2
 on: push
 jobs:
   Compilation:
